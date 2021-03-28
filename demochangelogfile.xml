@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd
+    http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd ">
+
+    <changeSet id="a7.1" author="activity.7">
+        <createTable tableName="person_a7">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address1" type="varchar(50)"/>
+            <column name="address2" type="varchar(50)"/>
+            <column name="city" type="varchar(30)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="a7.2" author="activity.7">
+        <createTable tableName="company_a7">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address1" type="varchar(50)"/>
+            <column name="address2" type="varchar(50)"/>
+            <column name="city" type="varchar(30)"/>
+        </createTable>
+    </changeSet>
+	
+	
+
+    <changeSet id="a7.3" author="activity.7">
+        <addColumn tableName="person_a7">
+            <column name="country" type="varchar(2)"/>
+        </addColumn>
+    </changeSet>
+	
+	<changeSet id="14" author="liquibase">
+        <createTable tableName="countries">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbreviation_4char" type="varchar(4)"/>
+            <column name="abbreviation_2char" type="varchar(2)"/>
+        </createTable>
+    </changeSet>
+	
+	
+	<changeSet  author="liquibase"  id="16">  
+    <createSequence  cacheSize="50"  
+            cycle="true"  
+            incrementBy="2"  
+            maxValue="1000000"  
+            minValue="10"   
+            schemaName="public"  
+            sequenceName="by2"  
+            startValue="10"/>  
+</changeSet>
+
+<changeSet  author="liquibase"  id="17">  
+    <createView  
+            encoding="UTF-8"  
+            fullDefinition="false"  
+            remarks="First 100 people"  
+            replaceIfExists="false"  
+            schemaName="public"  
+            viewName="v_person">select id, name from person where id &lt; 100</createView>   
+</changeSet>
+
+<changeSet id="20" author="liquibase">
+        <createTable tableName="department2">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="place1" type="varchar(50)"/>
+            <column name="place2" type="varchar(50)"/>
+            <column name="number" type="varchar(30)"/>
+        </createTable>
+    </changeSet>
+	<changeSet  author="liquibase"  id="21">  
+    <tagDatabase  tag="release1"/>  
+</changeSet>
+
+<changeSet id="22" author="liquibase">
+        <createTable tableName="department3">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="place3" type="varchar(50)"/>
+            <column name="place4" type="varchar(50)"/>
+            <column name="number" type="varchar(30)"/>
+        </createTable>
+    </changeSet>
+	<changeSet  author="liquibase"  id="23">  
+    <tagDatabase  tag="release2"/>  
+</changeSet>
+
+<changeSet id="18" author="liquibase">
+        <createTable tableName="India">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city1" type="varchar(50)"/>
+            <column name="city2" type="varchar(50)"/>
+            <column name="address" type="varchar(30)"/>
+        </createTable>
+    </changeSet>
+	
+	 <changeSet id="19" author="liquibase">
+        <createTable tableName="Australia">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city3" type="varchar(50)"/>
+            <column name="city4" type="varchar(50)"/>
+            <column name="address" type="varchar(30)"/>
+        </createTable>
+    </changeSet>
+	
+	<changeSet id="15" author="liquibase">
+        <createTable tableName="person1">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address1" type="varchar(50)"/>
+            <column name="address2" type="varchar(50)"/>
+            <column name="city" type="varchar(30)"/>
+        </createTable>
+    </changeSet>
+	
+</databaseChangeLog>
